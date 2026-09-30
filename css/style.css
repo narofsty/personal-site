@@ -196,11 +196,14 @@ svg {
 /* 8) 动画 ---------------------------------------------------------------- */
 @keyframes blink { 50% { opacity: 0; } }
 
-.reveal {
+/* 先隐藏、进入视口后再淡入。
+   注意选择器带 .js 前缀：只有 JS 正常运行时才会隐藏内容，
+   否则（JS 被禁用 / main.js 没加载成功）内容保持可见。 */
+.js .reveal {
   opacity: 0; transform: translateY(18px);
   transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
 
 /* 9) 响应式 -------------------------------------------------------------- */
 @media (max-width: 860px) {
@@ -231,5 +234,5 @@ svg {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }
