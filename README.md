@@ -1,209 +1,159 @@
-# 个人主页 DEMO
+﻿# 计算机学习记录站
 
-一个纯静态的个人主页，用来展示个人信息。**零依赖、零构建** —— 打开浏览器就能跑，
-推到 GitHub 就能通过 GitHub Pages 免费上线，不需要买服务器，也不需要域名。
+记录我在计算机方向的学习进度、代码提交和笔记。纯静态站点，通过 GitHub Pages 免费托管。
 
-## 文件说明
+线上地址：<https://narofsty.github.io/personal-site/>
 
-| 文件 | 作用 |
-| --- | --- |
-| `index.html` | 页面结构 + 所有文字内容 |
-| `css/style.css` | 全部样式（配色变量在最上面，换主题只改那一小块） |
-| `js/main.js` | 交互：深浅色切换、打字机、滚动淡入、移动端菜单 |
-| `.nojekyll` | 让 GitHub Pages 跳过 Jekyll 处理，避免以后某些文件被莫名忽略 |
-| `README.md` | 本文件。它不会显示在网页上，但会显示在仓库首页 |
+## 页面组成
+
+| 板块 | 内容 | 数据来源 |
+| --- | --- | --- |
+| 个人信息 | 姓名 + 若干邮箱 | `data/site.json`（手写） |
+| 学习进度 | 每条学习线的进度条、单元清单、最近提交 | `data/tracks.json`（手写）+ 构建时抓取 |
+| 提交动态 | 提交数 / 活跃天数 / 连续学习 / 热力图 / 时间线 | 构建时从 GitHub 抓取 |
+| 文章 | Markdown 写完，构建时转成 HTML 内嵌到单页 | `posts/*.md`（手写） |
+
+## 目录结构
+
+```
+personal-site/
+├─ index.html          ← 【自动生成，不要直接编辑】构建产物
+├─ style.css           ← 手写：全部样式
+├─ main.js             ← 手写：主题切换 / 滚动淡入 / 单元清单 / 文章展开
+├─ build.mjs           ← 构建脚本
+├─ package.json        ← 只有 build 命令和 2 个依赖
+├─ data/
+│  ├─ site.json        ← 姓名、邮箱、站点标题        【你改】
+│  ├─ tracks.json      ← 学习线与单元进度            【你最常改】
+│  └─ activity.json    ← 提交数据缓存，构建时自动写入
+├─ posts/              ← 文章源文件（Markdown）      【你改】
+└─ templates/
+   └─ index.html       ← 页面骨架模板，含 {{占位符}}
+```
+
+> **重要**：`index.html` 是自动生成的。改内容请改 `data/` 或 `posts/`，直接改 `index.html` 会在下次构建时被覆盖。
 
 ## 一、本地预览
 
-不用安装任何东西，两种方式任选：
-
-1. **最简单**：直接双击 `index.html`，浏览器就会打开。
-2. **更接近线上环境**（推荐）：在本文件夹打开终端，运行
-
-   ```bash
-   python -m http.server 8000
-   ```
-
-   然后浏览器访问 <http://localhost:8000>。没有 Python 就用 Node.js：`npx serve .`
-
-   按 `Ctrl + C` 停止。
-
-## 二、改成你自己的内容
-
-打开 `index.html`，搜索 `↓↓↓` —— 所有需要你替换的地方我都加了注释。
-
-| 想改什么 | 去哪里改 |
-| --- | --- |
-| 浏览器标签页标题、搜索简介 | `index.html` 的 `<title>` 和 `<meta name="description">` |
-| 页面上显示的名字 | `index.html` 里 `<h1 class="hero__name">` |
-| 左上角 logo 字母 | `index.html` 里 `class="nav__logo"` 的那个字母 |
-| 头像文字 | `index.html` 里 `.avatar` 内的 `<span>` |
-| 身份/职位轮播文字 | `js/main.js` 第一行的 `TITLES` 数组 |
-| 「关于我」正文 | `index.html` 的 `#about` 区块 |
-| 技能标签 | `index.html` 的 `#skills` 区块 |
-| 项目卡片 | `index.html` 的 `#projects` 区块（复制一个 `<article>` 就能加项目） |
-| 邮箱 / GitHub / 社交链接 | `index.html` 的 `#contact` 区块里的 `<a href="...">` |
-| 配色 | `css/style.css` 顶部的 `:root`（浅色）和 `[data-theme="dark"]`（深色） |
-
-> **换成真实头像照片**：把照片命名为 `avatar.jpg` 放到和 `index.html` 同一层，
-> 然后把 `<div class="avatar" aria-hidden="true"><span>王</span></div>`
-> 换成 `<div class="avatar"><img src="avatar.jpg" alt="我的头像"></div>`。
-
-## 三、部署到 GitHub Pages（手把手）
-
-### 第 0 步：注册 GitHub
-
-已经有账号就跳过。没有就去 <https://github.com/signup> 注册。
-记住你的**用户名**，它决定你最终的网址。
-
-### 第 1 步：在 GitHub 上新建仓库
-
-1. 点右上角 `+` → `New repository`。
-2. `Repository name` 填 `personal-site`（或任意英文名）。
-3. 可见性选 **Public**（公开仓库用免费的 Pages 最省事）。
-4. **不要**勾选 `Add a README file` / `.gitignore` / `license` —— 本地已经有文件了，
-   勾了反而会产生冲突。
-5. 点 `Create repository`。
-
-### 第 2 步：把本地代码推上去
-
-本地这个文件夹已经是 git 仓库、也已经提交好了。你只需关联远程仓库并推送：
-
 ```bash
-# 把 你的用户名 换成你自己的 GitHub 用户名
-git remote add origin https://github.com/你的用户名/personal-site.git
-git branch -M main
-git push -u origin main
+npm install     # 只需第一次
+npm run build   # 生成 index.html
 ```
 
-第一次推送会弹出浏览器让你登录 GitHub，跟着授权即可。
-
-### 第 3 步：打开 Pages
-
-1. 进入仓库页面 → 上方 `Settings`。
-2. 左侧菜单找到 `Pages`。
-3. `Source` 选 **Deploy from a branch**。
-4. `Branch` 选 `main`，右边目录选 `/ (root)`，点 `Save`。
-5. 等 1～3 分钟，刷新这个设置页，顶部会出现绿色提示和你的网址。
-
-### 第 4 步：访问你的网站
-
-- 仓库名是 `你的用户名.github.io` → 网址 `https://你的用户名.github.io`
-- 其他仓库名 → 网址 `https://你的用户名.github.io/personal-site/`
-
-## 四、以后怎么更新内容
-
-改完文件后，在本文件夹执行三行：
+然后双击 `index.html` 就能看。想更接近线上环境，可以在本目录运行：
 
 ```bash
+python -m http.server 8000     # 或用 npx serve .
+```
+
+## 二、日常怎么更新
+
+### 1. 学完一个单元 → 改进度
+
+打开 `data/tracks.json`，把对应单元的 `"status": "todo"` 改成 `"done"`：
+
+```json
+{ "dir": "03-Developer-Skills", "title": "03 · 开发者技能与调试", "status": "done", "date": "2026-10-05" }
+```
+
+`status` 三种取值：`done` 已完成 / `doing` 进行中 / `todo` 未开始。进度条、百分比、单元清单状态都会自动重算。
+
+### 2. 写一篇文章 → 新建 Markdown
+
+在 `posts/` 里新建 `2026-10-05-文章标题.md`：
+
+````markdown
+---
+title: 文章标题
+date: 2026-10-05
+tags: [JavaScript, 笔记]
+summary: 一句话摘要，会显示在列表卡片上。
+---
+
+正文用 Markdown 写。代码块会自动高亮：
+
+```js
+const add = (a, b) => a + b;
+```
+````
+
+文章列表按日期倒序自动排列，二级/三级标题会自动生成「本文目录」和锚点，不需要手工维护任何清单。
+
+### 3. 改姓名或邮箱
+
+改 `data/site.json`：
+
+```json
+{
+  "name": "narofsty",
+  "alias": "王小强",
+  "emails": [
+    { "label": "Gmail", "address": "narofsty@gmail.com" },
+    { "label": "QQ", "address": "1637370940@qq.com" }
+  ]
+}
+```
+
+### 4. 发布
+
+```bash
+npm run build
 git add .
-git commit -m "更新个人信息"
+git commit -m "更新学习进度"
 git push
 ```
 
-推送后约 1 分钟线上自动更新。看不到变化就先按 `Ctrl + F5` 强制刷新。
+推送后约 1 分钟线上自动更新。看不到变化先按 `Ctrl + F5` 强制刷新。
+
+## 三、提交数据是怎么抓的
+
+构建时 `build.mjs` 会对每条学习线调一次 GitHub，抓取**只属于你自己**的提交（自动过滤掉课程官方的骨架提交）。两种方式自动选择：
+
+| 方式 | 何时使用 | 限制 |
+| --- | --- | --- |
+| **atom 订阅**（默认） | 没设 Token 时 | 只能读公开仓库，每个仓库最多最近 20 条 |
+| **GitHub API** | 设置了 `GITHUB_TOKEN` 时 | 每次构建消耗 1 次 API 配额（未认证 60 次/小时） |
+
+抓取结果会缓存进 `data/activity.json`。**网络不通或抓取失败时构建不会报错**，会直接用上次的缓存。
+
+### 要抓私有仓库的提交
+
+```powershell
+$env:GITHUB_TOKEN = "ghp_你的token"   # 只需 repo 读权限
+npm run build
+```
+
+Token 只在你本机环境变量里，**不会进代码、不会进网站**。
+
+## 四、部署到 GitHub Pages
+
+当前用的是最简单的「分支部署」，**改完推送就自动发布**，不需要动 GitHub Actions：
+
+1. 仓库 → `Settings` → 左侧 `Pages`
+2. `Source` 选 **Deploy from a branch**
+3. `Branch` 选 `main`、目录选 `/ (root)` → `Save`
+4. 访问 `https://narofsty.github.io/personal-site/`
+
+> 为什么不发布 dist/？因为这是**单页**站，构建产物就是根目录这一个 index.html，直接提交即可。
 
 ## 五、常见问题
 
-**1. 打开网址是 404**
+**1. 构建报错 Cannot find package 'marked'**
+先跑 `npm install`。
 
-- Pages 首次部署要等 1～3 分钟，先等等。
-- 确认 `Settings → Pages` 里分支是 `main`、目录是 `/ (root)`。
-- 确认 `index.html` 在仓库**根目录**，而不是在某个子文件夹里。
-- 网址里的仓库名要和仓库实际名字大小写完全一致。
+**2. 我改了 index.html，重新构建后改动没了**
+index.html 是生成物。要改内容请改 data/ 或 posts/；要改结构请改 templates/index.html。
 
-**2. 页面出来了但没有样式，或按钮点了没反应**
+**3. 提交数是 0 / 显示「暂无提交数据」**
+- 没设 GITHUB_TOKEN 时只能读公开仓库，私有仓库抓不到（进度板块不受影响）
+- 网络不通时用缓存；缓存也没有就显示空
 
-- 说明 `css/style.css` 或 `js/main.js` 没传上去。去仓库首页确认这些文件存在，
-  且目录层级和 `index.html` 里写的一致。
-- 文件名区分大小写：`Style.css` 不等于 `style.css`。
+**4. 想再加一条学习线（比如以后加 CS61B）**
+复制 data/tracks.json 里 tracks 数组的那一项，改掉 id / title / subtitle / repo 和 units 即可，页面会自动多出一张卡片。
 
-**3. 改完内容线上没变化**
+**5. 改了内容线上没变化**
+按 Ctrl + F5 强制刷新；或者忘了跑 npm run build（不构建的话 index.html 还是旧的）。
 
-- 浏览器缓存，用 `Ctrl + F5` 强制刷新，或用无痕窗口打开。
-- 去仓库 `Settings → Pages` 看最近一次部署时间。
+## 六、设计文档
 
-**4. 中文显示成乱码**
-
-- 保存文件时选择 **UTF-8** 编码（VS Code 右下角可以切换并保存）。
-
-**5. push 时一直认证失败**
-
-- GitHub 已不支持用账号密码推送，需要用 **Personal Access Token**：
-  `GitHub → 头像 → Settings → Developer settings → Personal access tokens → Tokens (classic)
-  → Generate new token`，勾选 `repo` 权限，生成后复制那串字符，
-  **在提示输入密码时粘贴它**。
-- 更省事的办法：装 [GitHub Desktop](https://desktop.github.com/)，
-  点几下就能推送，完全不用折腾 token。
-
-**6. 想要更短的网址**
-
-- 把仓库改名为 `你的用户名.github.io`（必须完全一致），再回 `Settings → Pages`
-  保存一次，网址就变成 `https://你的用户名.github.io`。
-
-**7. 想绑定自己的域名**
-
-- 买个域名，在仓库 `Settings → Pages → Custom domain` 填进去，
-  然后按提示去域名商那里添加 CNAME 记录。
-
-**8. 首屏正常，但往下滚中间是空白的**
-
-- 中间区块的设计是「先隐藏，滚动到才淡入」。我在代码里做了兜底：
-  如果 `js/main.js` 加载失败，页面会自动恢复成全部可见。
-- 如果仍然空白，说明脚本加载到了但执行出错。按 `F12` 打开 Console 看红色报错，
-  最常见的原因是 `js/main.js` 的路径或文件名被改错了。
-
-## 六、进阶：改用 GitHub Actions 部署（可选）
-
-上面用的是最简单的「分支部署」。以后如果你想引入构建步骤（比如用 Vite、React、
-Tailwind），就应该换成 GitHub Actions：
-
-在仓库里新建文件 `.github/workflows/deploy.yml`（在 GitHub 网页端新建文件时，
-路径里带 `/` 会自动创建文件夹），内容：
-
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - id: deployment
-        uses: actions/deploy-pages@v4
-```
-
-然后把 `Settings → Pages → Source` 从 `Deploy from a branch` 改成 **`GitHub Actions`**。
-
-> 注意：这两件事要一起做。只加工作流文件、却仍把 Source 留在「分支部署」，
-> 每次推送都会跑一个失败的部署任务。
-
-## 七、上线前检查清单
-
-- [ ] `index.html` 里的名字、简介、项目都换成自己的了
-- [ ] 联系方式（邮箱、GitHub 链接）是自己的
-- [ ] `js/main.js` 里的 `TITLES` 换成了自己的身份
-- [ ] 本地双击 `index.html` 打开正常：有样式、无报错（按 F12 看 Console）
-- [ ] 仓库是 Public，`index.html` 在仓库根目录
-- [ ] `Settings → Pages` 已选 `main` + `/ (root)` 并保存
+完整的架构决策、数据模型和取舍记录在 [DESIGN.md](DESIGN.md)。

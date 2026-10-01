@@ -1,0 +1,14 @@
+{
+  "name": "personal-site",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "计算机学习记录站：学习进度 + 提交动态 + 文章",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "highlight.js": "^11.12.0",
+    "marked": "^18.0.14"
+  }
+}

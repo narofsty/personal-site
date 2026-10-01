@@ -1,0 +1,32 @@
+{
+  "_说明": "这是你最常改的文件。每个 track 是一条学习线，units 是学习单元。status 三种取值：done=已完成、doing=进行中、todo=未开始。完成一个单元就把它的 status 改成 done（可以顺便加 \"date\": \"2026-10-05\" 记录日期）。想新增一条学习线（比如以后加 CS61B），照着下面这条复制一份改掉 id / title / subtitle / repo 和 units 即可。",
+  "tracks": [
+    {
+      "id": "js",
+      "title": "前端 · JavaScript",
+      "subtitle": "The Complete JavaScript Course · Jonas Schmedtmann",
+      "repo": "narofsty/complete-javascript-course",
+      "author": "narofsty",
+      "units": [
+        { "dir": "01-Fundamentals-Part-1", "title": "01 · JS 基础（一）", "status": "done" },
+        { "dir": "02-Fundamentals-Part-2", "title": "02 · JS 基础（二）", "status": "done" },
+        { "dir": "03-Developer-Skills", "title": "03 · 开发者技能与调试", "status": "todo" },
+        { "dir": "04-HTML-CSS", "title": "04 · HTML 与 CSS 基础", "status": "todo" },
+        { "dir": "05-Guess-My-Number", "title": "05 · 项目：猜数字", "status": "todo" },
+        { "dir": "06-Modal", "title": "06 · 项目：模态框", "status": "todo" },
+        { "dir": "07-Pig-Game", "title": "07 · 项目：骰子游戏", "status": "todo" },
+        { "dir": "08-Behind-the-Scenes", "title": "08 · JS 运行原理", "status": "todo" },
+        { "dir": "09-Data-Structures-Operators", "title": "09 · 数据结构与操作符", "status": "todo" },
+        { "dir": "10-Functions", "title": "10 · 函数", "status": "todo" },
+        { "dir": "11-Arrays-Bankist", "title": "11 · 数组方法与 Bankist", "status": "todo" },
+        { "dir": "12-Numbers-Dates-Timers-Bankist", "title": "12 · 数字、日期与定时器", "status": "todo" },
+        { "dir": "13-Advanced-DOM-Bankist", "title": "13 · 高级 DOM 与 Bankist", "status": "todo" },
+        { "dir": "14-OOP", "title": "14 · 面向对象编程", "status": "todo" },
+        { "dir": "15-Mapty", "title": "15 · 项目：Mapty", "status": "todo" },
+        { "dir": "16-Asynchronous", "title": "16 · 异步 JavaScript", "status": "todo" },
+        { "dir": "17-Modern-JS-Modules-Tooling", "title": "17 · 模块与工具链", "status": "todo" },
+        { "dir": "18-forkify", "title": "18 · 项目：forkify", "status": "todo" }
+      ]
+    }
+  ]
+}

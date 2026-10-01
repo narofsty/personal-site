@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-10-01T12:55:31.935Z",
+  "repos": {
+    "narofsty/complete-javascript-course": {
+      "source": "atom",
+      "commits": [
+        {
+          "sha": "2387ff3",
+          "message": "Merge pull request #2 from narofsty/wxq",
+          "date": "2026-09-24T17:30:44.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/2387ff3b64547fbec3499f4321e153a9d56e6143"
+        },
+        {
+          "sha": "9dcc06e",
+          "message": "null:no message;",
+          "date": "2026-09-24T17:23:46.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/9dcc06e85afb66bc968b478a223a1f543c9e9523"
+        },
+        {
+          "sha": "4299c46",
+          "message": "learn:teache impl",
+          "date": "2026-09-24T17:23:01.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/4299c468a6651b6188db33c289290dd2f9d20982"
+        },
+        {
+          "sha": "9a102e1",
+          "message": "challenge 1:自己实现",
+          "date": "2026-09-24T17:19:34.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/9a102e10cb34518d77078b2b2a180b1e726f5bd0"
+        },
+        {
+          "sha": "fece9aa",
+          "message": "learn: [1]review 3 different function types",
+          "date": "2026-09-24T16:53:23.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/fece9aa1b27106c0699bc927e8a42bd88a562131"
+        },
+        {
+          "sha": "8eadaf4",
+          "message": "Merge pull request #1 from narofsty/wxq",
+          "date": "2026-09-23T17:54:31.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/8eadaf4d4b9f6bee09935cfb904316a0d74e54c7"
+        },
+        {
+          "sha": "44efb75",
+          "message": "learn:functions calling others functions 函数调用其他函数",
+          "date": "2026-09-23T17:52:24.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/44efb756a4cdf8fa037222263058b7bcdaddec5e"
+        },
+        {
+          "sha": "32233d7",
+          "message": "learn:arrow Function 箭头函数",
+          "date": "2026-09-23T17:38:38.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/32233d7904d1bbebd5032ded2a363f2e565e3c3d"
+        },
+        {
+          "sha": "6b5ca98",
+          "message": "learn:Function Delarations vs.Expressions. 函数声明和表达式",
+          "date": "2026-09-23T17:20:41.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/6b5ca9840857b456e506bc640247f9db3fcac075"
+        },
+        {
+          "sha": "93f0248",
+          "message": "learn：functions",
+          "date": "2026-09-23T17:06:23.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/93f0248e7c939d6cee6d99232b3b9c3fda613344"
+        },
+        {
+          "sha": "07bf6fc",
+          "message": "挑战4 三元运算符---下面进入02",
+          "date": "2026-09-20T16:50:13.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/07bf6fcad668f52f486e6715c2ee3530ca564595"
+        },
+        {
+          "sha": "a741a23",
+          "message": "if else",
+          "date": "2026-09-20T16:00:36.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/a741a23a3b3e06615e8e7b85ca5776018e601644"
+        },
+        {
+          "sha": "d6b1852",
+          "message": "提交，暂时停止",
+          "date": "2026-09-16T17:48:30.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/d6b185250b42ac120fd465250c4fd7413c740260"
+        },
+        {
+          "sha": "695232f",
+          "message": "=== and == ,!==",
+          "date": "2026-09-12T07:14:15.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/695232f8cb9b30ce8f62e6f1e0ea0a1ebcf8a0c9"
+        },
+        {
+          "sha": "395612f",
+          "message": "类型转换",
+          "date": "2026-09-12T06:30:47.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/395612faec95fa97203d6073e69bcb9626faa55e"
+        },
+        {
+          "sha": "977aed5",
+          "message": "challenge 2",
+          "date": "2026-09-11T16:38:08.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/977aed570b381d7b32f6cdd3d09420d08e218787"
+        },
+        {
+          "sha": "50ff643",
+          "message": "if else",
+          "date": "2026-09-11T16:22:19.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/50ff643fb121b6e98859c256b8dd008c530e8a50"
+        },
+        {
+          "sha": "d25112c",
+          "message": "nothing",
+          "date": "2026-09-10T17:37:27.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/d25112c90ff0737842e42f672e9c0bbd77507f8f"
+        },
+        {
+          "sha": "a348d5c",
+          "message": "String and template literals",
+          "date": "2026-09-10T17:34:11.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/a348d5c3354018664e275ce17ed6c567c3e039bc"
+        },
+        {
+          "sha": "e2772ea",
+          "message": "no message,尽量使用const",
+          "date": "2026-09-10T16:57:28.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/e2772ea64ebc35fcd3b390f629cfc3249e5c2f6f"
+        }
+      ]
+    }
+  }
+}

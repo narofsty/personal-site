@@ -1,0 +1,12 @@
+{
+  "name": "narofsty",
+  "alias": "王小强",
+  "title": "计算机学习记录",
+  "description": "记录我在计算机方向的学习进度、代码提交和笔记。",
+
+  "_说明": "emails 里每一项都会显示在页面顶部，label 是标签，address 是邮箱地址。想加邮箱就往数组里再添一项。",
+  "emails": [
+    { "label": "Gmail", "address": "narofsty@gmail.com" },
+    { "label": "QQ", "address": "1637370940@qq.com" }
+  ]
+}
