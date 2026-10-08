@@ -1,9 +1,69 @@
 {
-  "generatedAt": "2026-10-01T12:55:31.935Z",
+  "generatedAt": "2026-10-08T11:20:57.888Z",
   "repos": {
     "narofsty/complete-javascript-course": {
       "source": "atom",
       "commits": [
+        {
+          "sha": "ab0ffc7",
+          "message": "Merge pull request #3 from narofsty/wxq",
+          "date": "2026-10-02T15:28:05.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/ab0ffc79da91c82386042c9e8be23c0f42cf1493"
+        },
+        {
+          "sha": "2dce83e",
+          "message": "Merge branch 'main' into wxq",
+          "date": "2026-10-02T15:25:19.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/2dce83e67987c71850689fb995026a75f9e340b0"
+        },
+        {
+          "sha": "5134304",
+          "message": "fix:格式修改",
+          "date": "2026-10-02T15:22:58.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/5134304b409d46f78ce579df127eaed55d4349fe"
+        },
+        {
+          "sha": "673152d",
+          "message": "Merge branch 'main' of github.com:narofsty/complete-javascript-course",
+          "date": "2026-10-02T15:17:27.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/673152db98c78523fdba7a99f30be8d667d3afef"
+        },
+        {
+          "sha": "4881493",
+          "message": "fix:格式修改",
+          "date": "2026-10-02T15:15:50.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/488149323b66216bd6300697b4df1e8d0f2b6235"
+        },
+        {
+          "sha": "aed3eb9",
+          "message": "fix:格式修改",
+          "date": "2026-10-02T15:15:30.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/aed3eb9cdc22e0ca23279f98bd6f5c3a32ccb3dc"
+        },
+        {
+          "sha": "fb98957",
+          "message": "learn:通过 . 和 [] 访问数组中的元素",
+          "date": "2026-10-01T14:56:36.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/fb98957e4d995d7569e822a85dba26cbd895ddda"
+        },
+        {
+          "sha": "8c03a90",
+          "message": "challenge 2:array impl",
+          "date": "2026-09-26T18:40:15.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/8c03a903154096bcedc9e31df7d818f5d6463812"
+        },
+        {
+          "sha": "4cb6d8d",
+          "message": "learn:数组相关的方法pop,push,indexOf,shift,unshift,include",
+          "date": "2026-09-26T18:21:19.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/4cb6d8dc18538afbc5fc2e47bbf7fe8da93eb83f"
+        },
+        {
+          "sha": "3877df4",
+          "message": "learn:介绍 arrays",
+          "date": "2026-09-25T21:23:37.000Z",
+          "url": "https://github.com/narofsty/complete-javascript-course/commit/3877df459eeb746db47c180c3d620270384efee0"
+        },
         {
           "sha": "2387ff3",
           "message": "Merge pull request #2 from narofsty/wxq",
@@ -63,66 +123,6 @@
           "message": "learn：functions",
           "date": "2026-09-23T17:06:23.000Z",
           "url": "https://github.com/narofsty/complete-javascript-course/commit/93f0248e7c939d6cee6d99232b3b9c3fda613344"
-        },
-        {
-          "sha": "07bf6fc",
-          "message": "挑战4 三元运算符---下面进入02",
-          "date": "2026-09-20T16:50:13.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/07bf6fcad668f52f486e6715c2ee3530ca564595"
-        },
-        {
-          "sha": "a741a23",
-          "message": "if else",
-          "date": "2026-09-20T16:00:36.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/a741a23a3b3e06615e8e7b85ca5776018e601644"
-        },
-        {
-          "sha": "d6b1852",
-          "message": "提交，暂时停止",
-          "date": "2026-09-16T17:48:30.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/d6b185250b42ac120fd465250c4fd7413c740260"
-        },
-        {
-          "sha": "695232f",
-          "message": "=== and == ,!==",
-          "date": "2026-09-12T07:14:15.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/695232f8cb9b30ce8f62e6f1e0ea0a1ebcf8a0c9"
-        },
-        {
-          "sha": "395612f",
-          "message": "类型转换",
-          "date": "2026-09-12T06:30:47.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/395612faec95fa97203d6073e69bcb9626faa55e"
-        },
-        {
-          "sha": "977aed5",
-          "message": "challenge 2",
-          "date": "2026-09-11T16:38:08.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/977aed570b381d7b32f6cdd3d09420d08e218787"
-        },
-        {
-          "sha": "50ff643",
-          "message": "if else",
-          "date": "2026-09-11T16:22:19.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/50ff643fb121b6e98859c256b8dd008c530e8a50"
-        },
-        {
-          "sha": "d25112c",
-          "message": "nothing",
-          "date": "2026-09-10T17:37:27.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/d25112c90ff0737842e42f672e9c0bbd77507f8f"
-        },
-        {
-          "sha": "a348d5c",
-          "message": "String and template literals",
-          "date": "2026-09-10T17:34:11.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/a348d5c3354018664e275ce17ed6c567c3e039bc"
-        },
-        {
-          "sha": "e2772ea",
-          "message": "no message,尽量使用const",
-          "date": "2026-09-10T16:57:28.000Z",
-          "url": "https://github.com/narofsty/complete-javascript-course/commit/e2772ea64ebc35fcd3b390f629cfc3249e5c2f6f"
         }
       ]
     }
