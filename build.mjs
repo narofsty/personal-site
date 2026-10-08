@@ -92,9 +92,11 @@ async function loadTracks() {
 
 /* ============================ 文章 ============================ */
 
-/** 解析 Markdown 顶部的 front matter */
+/** 解析 Markdown 顶部的 front matter
+ *  开头的 \uFEFF? 用来跳过 BOM：Windows 记事本、PowerShell 5.1 保存的文件会带 BOM，
+ *  不跳过的话开头的 --- 匹配不到，元信息会被「静默」忽略（日期/标签/摘要全丢）。 */
 function parseFrontMatter(raw) {
-  const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/.exec(raw);
+  const m = /^\uFEFF?---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/.exec(raw);
   if (!m) return { data: {}, body: raw };
 
   const data = {};
